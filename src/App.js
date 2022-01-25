@@ -1,5 +1,7 @@
+import { Calculator } from "./lib";
+
 function App() {
-	return <div className="app"></div>;
+	return <Calculator />;
 }
 
 export default App;

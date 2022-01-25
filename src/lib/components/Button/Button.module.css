@@ -1,0 +1,18 @@
+.container {
+	padding: 0;
+	border: unset;
+	display: flex;
+	outline: unset;
+	cursor: pointer;
+	align-items: center;
+	font-family: inherit;
+	box-sizing: border-box;
+	justify-content: center;
+	color: var(--color-text, inherit);
+	background: var(--background, transparent);
+}
+.container.circular {
+	border-radius: 100%;
+	width: var(--size, 40px);
+	height: var(--size, 40px);
+}

@@ -12,8 +12,6 @@
 	--color-white: #fff;
 	--color-dangers: #ff3b1d;
 
-	--font-family: "Rubik";
-
 	--font-size-XLBody: 2rem /* 32px */;
 	--font-size-LBody: 1.5rem /* 24px */;
 	--font-size-MBody: 1.2rem; /* 19.2px */
@@ -21,6 +19,7 @@
 	--font-size-SBody: 0.72rem; /* 11.52px */
 
 	font-size: 100%;
+	font-family: "Rubik";
 	text-size-adjust: 100%;
 	box-sizing: border-box;
 }

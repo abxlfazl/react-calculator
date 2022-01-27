@@ -1,6 +1,5 @@
 .container {
 	width: 18.5rem;
-	font-family: var(--font-family);
 	color: var(--calc-color-text, var(--color-text));
 	border-radius: var(--calc-border-radius, 1.5rem);
 	background-color: var(--calc-bg-color, var(--color-white));

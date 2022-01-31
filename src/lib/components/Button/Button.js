@@ -6,7 +6,7 @@ const Button = ({
 	className,
 	circular,
 	onClick = () => false,
-	contentType = "XLBody",
+	contentType = s.XLBody,
 	children,
 }) => {
 	return (

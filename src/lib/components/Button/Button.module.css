@@ -16,3 +16,6 @@
 	width: var(--size, 40px);
 	height: var(--size, 40px);
 }
+.XLBody {
+	font-size: var(--font-size-XLBody);
+}

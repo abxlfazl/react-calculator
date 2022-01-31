@@ -1,8 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik&display=swap");
+
+/* -------------- Public Classes -------------- */
+
+.flexColumn {
+	display: flex;
+	flex-direction: column;
+}
+.flexRow {
+	display: flex;
+	flex-direction: row;
+}
+
+/* -------------- TYPOGRAPHY -------------- */
+
+.XLBody {
+	font-size: var(--font-size-XLBody);
+}
+.LBody {
+	font-size: var(--font-size-LBody);
+}
+.MBody {
+	font-size: var(--font-size-MBody);
+}
+.Body {
+	font-size: var(--font-size-Body);
+}
+.SBody {
+	font-size: var(--font-size-SBody);
+}
+
 .container {
+	--color-primary: #4cc9f0;
+
+	--color-text: #040404;
+
+	--color-bg: #dfe7fd45;
+
+	--color-border: #dfe7fd;
+
+	--color-white: #fff;
+	--color-dangers: #ff3b1d;
+
+	--font-size-XLBody: 2rem /* 32px */;
+	--font-size-LBody: 1.5rem /* 24px */;
+	--font-size-MBody: 1.2rem; /* 19.2px */
+	--font-size-Body: 1rem; /* 16px */
+	--font-size-SBody: 0.72rem; /* 11.52px */
+
+	font-size: 100%;
+	font-family: "Rubik";
+	text-size-adjust: 100%;
+	box-sizing: border-box;
+
 	width: 18.5rem;
-	color: var(--calc-color-text, var(--color-text));
-	border-radius: var(--calc-border-radius, 1.5rem);
-	background-color: var(--calc-bg-color, var(--color-white));
+	color: var(--color-text);
+	border-radius: 1.5rem;
+	background-color: var(--color-white);
+}
+.container *,
+.container *::before,
+.container *::after {
+	box-sizing: border-box;
 }
 .topRow {
 	margin: 1rem 1.14688rem 0;
@@ -56,7 +114,7 @@
 	height: 15.9375rem;
 	align-items: center;
 	border-radius: 6.25rem;
-	background-color: var(--calc-operations-bg-color, var(--color-bg));
+	background-color: var(--color-bg);
 }
 .operationButtons {
 	width: 100%;
@@ -67,7 +125,7 @@
 .operationButtons:last-child {
 	--size: 44px !important;
 	--color-text: var(--color-white);
-	--background: var(--calc-color-primary, var(--color-primary));
+	--background: var(--color-primary);
 
 	flex-shrink: 0;
 	padding-bottom: 0.2rem !important;
@@ -91,7 +149,7 @@
 	padding-top: 0.7rem !important;
 }
 .delete {
-	--color-text: var(--calc-color-primary, var(--color-primary));
+	--color-text: var(--color-primary);
 }
 .percentage {
 	grid-column: 3;

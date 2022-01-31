@@ -2,12 +2,11 @@ import { useState } from "react";
 import cn from "classnames";
 
 import s from "./Calculator.module.css";
-import "../../styles/global.css";
 import { operations, keys } from "../../constants";
 import Button from "../Button/Button";
 import utils from "../../utils";
 
-const Calculator = ({ className }) => {
+const Calculator = ({ className = null }) => {
 	const [inputValues, setInputValues] = useState({
 		inputs: [0],
 		result: "",
@@ -59,9 +58,6 @@ const Calculator = ({ className }) => {
 	};
 
 	const handleSliceClick = () => {
-		if (equation) {
-			setTheEquation(null);
-		}
 		if (theSliceKeyShouldWork(inputs)) {
 			setInputValues(({ inputs, ...state }) => ({
 				inputs: sliceValue(inputs),
@@ -76,11 +72,11 @@ const Calculator = ({ className }) => {
 	};
 
 	return (
-		<section className={cn(s.container, className, "root", "flex-column")}>
+		<section className={cn(s.container, className, s.flexColumn)}>
 			<div className={s.topRow}>
 				<div
 					className={cn(s.input, s.equation, {
-						SBody: equationLength >= 31,
+						[s.SBody]: equationLength >= 31,
 					})}
 				>
 					{spacingBetweenOperations(equation) || showFirstEntry(inputs)}
@@ -88,15 +84,15 @@ const Calculator = ({ className }) => {
 				<div className={s.resultWrapper}>
 					<div
 						className={cn(s.input, s.result, {
-							XLBody: resultLength < 13,
-							LBody: resultLength >= 13 && resultLength < 17,
-							MBody: resultLength >= 17,
+							[s.XLBody]: resultLength < 13,
+							[s.LBody]: resultLength >= 13 && resultLength < 17,
+							[s.MBody]: resultLength >= 17,
 						})}
 					>
 						{showLastEntry(inputs)}
 					</div>
 					<Button
-						contentType="MBody"
+						contentType={s.MBody}
 						className={s.slice}
 						onClick={handleSliceClick}
 					>
@@ -106,7 +102,7 @@ const Calculator = ({ className }) => {
 					</Button>
 				</div>
 			</div>
-			<div className={cn(s.bottomRow, "flex-row")}>
+			<div className={cn(s.bottomRow, s.flexRow)}>
 				<div className={s.wrapper}>
 					<Button
 						children="c"
@@ -115,7 +111,7 @@ const Calculator = ({ className }) => {
 					/>
 					<Button
 						children="%"
-						contentType="LBody"
+						contentType={s.LBody}
 						className={cn(s.percentage, {
 							[s.disable]: isFinite(inputs),
 						})}
@@ -136,7 +132,7 @@ const Calculator = ({ className }) => {
 							.reverse()}
 					</div>
 				</div>
-				<div className={cn(s.operations, "flex-column")}>
+				<div className={cn(s.operations, s.flexColumn)}>
 					{operations.map(({ key, character }) => (
 						<Button
 							key={key}

@@ -25,7 +25,7 @@
 		"url": "https://github.com/abxlfazl/react-calculator/issues"
 	},
 	"license": "MIT",
-	"version": "1.0.5",
+	"version": "1.0.8",
 	"private": false,
 	"peerDependencies": {
 		"react": "^17.0.2",
@@ -35,6 +35,9 @@
 		"start": "react-scripts start",
 		"build": "rimraf dist && cross-env NODE_ENV=production babel src/lib --out-dir dist --copy-files"
 	},
+	"dependencies": {
+		"classnames": "^2.3.1"
+	},
 	"devDependencies": {
 		"@babel/cli": "^7.16.8",
 		"@babel/core": "^7.16.12",
@@ -42,17 +45,5 @@
 		"@babel/preset-react": "^7.16.7",
 		"cross-env": "^7.0.3",
 		"rimraf": "^3.0.2"
-	},
-	"browserslist": {
-		"production": [
-			">0.2%",
-			"not dead",
-			"not op_mini all"
-		],
-		"development": [
-			"last 1 chrome version",
-			"last 1 firefox version",
-			"last 1 safari version"
-		]
 	}
 }

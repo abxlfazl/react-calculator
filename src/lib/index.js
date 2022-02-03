@@ -1,1 +1,1 @@
-export { default as Calculator } from "./components/Calculator/Calculator";
+export { default as Calculator } from "./components/Calculator";

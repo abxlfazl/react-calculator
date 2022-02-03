@@ -1,4 +1,4 @@
-.container {
+.button {
 	padding: 0;
 	border: unset;
 	display: flex;
@@ -11,11 +11,8 @@
 	color: var(--color-text, inherit);
 	background: var(--background, transparent);
 }
-.container.circular {
+.button_circular {
 	border-radius: 100%;
 	width: var(--size, 40px);
 	height: var(--size, 40px);
-}
-.XLBody {
-	font-size: var(--font-size-XLBody);
 }

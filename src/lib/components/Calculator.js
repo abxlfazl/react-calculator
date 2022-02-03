@@ -1,10 +1,9 @@
 import { useState } from "react";
 import cn from "classnames";
 
-import s from "./Calculator.module.css";
-import { operations, keys } from "../../constants";
-import Button from "../Button/Button";
-import utils from "../../utils";
+import { operations, keys } from "../constants";
+import Button from "./Button";
+import utils from "../utils";
 
 const Calculator = ({ className = null }) => {
 	const [inputValues, setInputValues] = useState({
@@ -72,28 +71,28 @@ const Calculator = ({ className = null }) => {
 	};
 
 	return (
-		<section className={cn(s.container, className, s.flexColumn)}>
-			<div className={s.topRow}>
+		<section className={cn("calculator", className, "flex-column")}>
+			<div className="calculator__top-row">
 				<div
-					className={cn(s.input, s.equation, {
-						[s.SBody]: equationLength >= 31,
+					className={cn("calculator__input", "calculator__equation", {
+						SBody: equationLength >= 31,
 					})}
 				>
 					{spacingBetweenOperations(equation) || showFirstEntry(inputs)}
 				</div>
-				<div className={s.resultWrapper}>
+				<div className="calculator__result-wrapper">
 					<div
-						className={cn(s.input, s.result, {
-							[s.XLBody]: resultLength < 13,
-							[s.LBody]: resultLength >= 13 && resultLength < 17,
-							[s.MBody]: resultLength >= 17,
+						className={cn("calculator__input", "calculator__result", {
+							XLBody: resultLength < 13,
+							LBody: resultLength >= 13 && resultLength < 17,
+							MBody: resultLength >= 17,
 						})}
 					>
 						{showLastEntry(inputs)}
 					</div>
 					<Button
-						contentType={s.MBody}
-						className={s.slice}
+						contentType="MBody"
+						className="calculator__slice"
 						onClick={handleSliceClick}
 					>
 						<svg viewBox="0 0 32 32">
@@ -102,29 +101,29 @@ const Calculator = ({ className = null }) => {
 					</Button>
 				</div>
 			</div>
-			<div className={cn(s.bottomRow, s.flexRow)}>
-				<div className={s.wrapper}>
+			<div className={cn("calculator__bottom-row", "flex-row")}>
+				<div className="calculator__wrapper">
 					<Button
 						children="c"
-						className={s.delete}
+						className="calculator__delete"
 						onClick={handleDeleteClick}
 					/>
 					<Button
 						children="%"
-						contentType={s.LBody}
-						className={cn(s.percentage, {
-							[s.disable]: isFinite(inputs),
+						contentType="LBody"
+						className={cn("calculator__percentage", {
+							disable: isFinite(inputs),
 						})}
 						onClick={() => handleClick("%")}
 					/>
-					<div className={s.keyboard}>
+					<div className="calculator__keyboard">
 						{keys
 							.map((character, index) => (
 								<Button
 									key={index}
 									children={character}
-									className={cn(s.keys, {
-										[s.disable]: isFinite(inputs) && /[^0-9]/.test(character),
+									className={cn("calculator__keys", {
+										disable: isFinite(inputs) && /[^0-9]/.test(character),
 									})}
 									onClick={() => handleClick(character)}
 								/>
@@ -132,14 +131,14 @@ const Calculator = ({ className = null }) => {
 							.reverse()}
 					</div>
 				</div>
-				<div className={cn(s.operations, s.flexColumn)}>
+				<div className={cn("calculator__operations", "flex-column")}>
 					{operations.map(({ key, character }) => (
 						<Button
 							key={key}
 							children={character}
 							circular={key === "equal"}
-							className={cn(s.operationButtons, {
-								[s.disable]: isFinite(inputs) && key !== "equal",
+							className={cn("calculator__operation-buttons", {
+								disable: isFinite(inputs) && key !== "equal",
 							})}
 							onClick={() => handleClick(character)}
 						/>

@@ -1,18 +1,16 @@
 import cn from "classnames";
 
-import s from "./Button.module.css";
-
 const Button = ({
 	className,
 	circular,
 	onClick = () => false,
-	contentType = s.XLBody,
+	contentType = "XLBody",
 	children,
 }) => {
 	return (
 		<button
-			className={cn(s.container, contentType, className, {
-				[s.circular]: circular,
+			className={cn("button", contentType, className, {
+				button_circular: circular,
 			})}
 			onClick={(e) => {
 				onClick(e);
